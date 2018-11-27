@@ -10,7 +10,17 @@
 }
 ```
 ### 画一个三角形
-
+``` css
+.three{
+  border-top: 100px solid red;
+  border-left: 100px solid red;
+  border-bottom: 100px solid transparent;
+  border-right: 100px solid transparent;
+  width: 0;
+  height: 0;
+}
+```
+![](http://oi66.tinypic.com/2a016s8.jpg)
 ### table 内部内容过长超出外层 div
 https://blog.csdn.net/zzq900503/article/details/48733747
 ``` html
@@ -99,3 +109,8 @@ https://www.zhihu.com/question/35991373/answer/130256417
 1. 动态计算元素高度 https://www.zhangxinxu.com/wordpress/2015/01/content-loading-height-change-css3-transition-better-experience/
 2. 设置最大高变化
 http://jsfiddle.net/w1mw829k/15/
+
+### 子元素 inline-block 不能对齐问题
+https://codepen.io/ubuntugx/pen/WYZMZX
+默认 **行内元素** 根据文字的基线对齐（baseline），可以修改为与行中最高元素顶端对齐（vertical-align:top;）,放置在父元素中部（vertical-align:middle;）
+
