@@ -36,6 +36,7 @@ var promiseY = function(){
 // sum 最后返回了一个 Promise 实例，.then 参数是return的结果？
 sum(promiseX(), promiseY()).then(function(res){console.log(res)});
 ```
+> https://codepen.io/ubuntugx/pen/ZmwBJJ
 #### 成功和失败的状态捕捉
 成功后的值肯定是程序手动设置的，失败的可能是手动捕捉的原因，或者因为运行异常浏览器抛出的错误。
 ``` js
@@ -57,6 +58,7 @@ handleReject().then(function(res){
   console.log(err);
 })
 ```
+> https://codepen.io/ubuntugx/pen/wQNobo
 #### 解决控制反转的问题
 我们依赖第三方库的支付系统：
 ``` js
