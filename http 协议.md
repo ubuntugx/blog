@@ -126,7 +126,7 @@ Server: nginx/1.10.1
 - 允许在一次 TCP 连接中发送同时多个请求（管道），服务器依次响应请求，```Transfer-Encoding: chunked``` 表示响应由未定长度的数据块组成。
 - 一般浏览器最多同时打开六个 TCP 连接。
 - 但是因为服务器是依次响应请求的，如果有一个请求响应过慢，会有阻塞的现象。
-- 解决这种问题的主要方式：减少请求数（多个js/css文件通过webpack打包为一个js），开多个 TCP 连接
+- 解决这种问题的主要方式：减少请求数（多个js/css文件通过webpack打包为一个js，将小于5k的image转为base64添加到css文件里，图标使用iconfont），开多个 TCP 连接
 #### HTTP 2
 - 一个 TCP 连接里客户端和服务器都可以同时发送多个请求和响应，不按顺序。
 - 所以要将请求和响应一一对应，每一个发送和接收的数据包，都有唯一的ID，客户端这边的为奇数，服务器响应的为偶数。
@@ -145,4 +145,16 @@ Set-Cookie: SESSION=fdbcdd5e-8345-445e-8c4b-7c480042b463;Path=/;HttpOnly
 - HttpOnly：不能通过 `document.cookie` 访问，安全性考虑
 
 > https://juejin.im/entry/587de8341b69e600584bb947
+
+### 浏览器缓存机制
+```
+// 接下来 2592000 秒可以重用这个响应
+Cache-Control: max-age=2592000
+
+// 每次都先和服务器确认资源是否变化，没变化则不下载
+Cache-Control: no-catch
+
+// 每次都请求服务器并下载
+Cache-Control: no-store
+```
 
